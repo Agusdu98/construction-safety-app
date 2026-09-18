@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     }
 
     const { output } = await generateText({
-      model: 'google/gemini-3.8-flash',
+      model: 'openai/gpt-4o-mini',
       output: Output.object({ schema: analysisSchema }),
       system: [
         '당신은 산업안전 전문가이자 건설 장비 감식 전문가입니다.',
