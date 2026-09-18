@@ -72,9 +72,10 @@ export async function POST(req: Request) {
 
     return Response.json(output)
   } catch (err) {
-    console.log('[v0] analyze error:', err instanceof Error ? err.message : err)
+    const debugMessage = err instanceof Error ? err.message : String(err)
+    console.log('[v0] analyze error:', debugMessage)
     return Response.json(
-      { error: '분석 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.' },
+      { error: '분석 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', debug: debugMessage },
       { status: 500 },
     )
   }
